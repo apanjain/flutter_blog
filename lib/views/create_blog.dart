@@ -116,7 +116,7 @@ class _CreateBlogState extends State<CreateBlog> {
                     child: selectedImage != null
                         ? Container(
                             margin: EdgeInsets.symmetric(horizontal: 16),
-                            height: 150,
+                            height: 170,
                             width: MediaQuery.of(context).size.width,
                             child: ClipRRect(
                                 borderRadius: BorderRadius.circular(6),
@@ -127,7 +127,7 @@ class _CreateBlogState extends State<CreateBlog> {
                           )
                         : Container(
                             margin: EdgeInsets.symmetric(horizontal: 16),
-                            height: 150,
+                            height: 170,
                             decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(6),
