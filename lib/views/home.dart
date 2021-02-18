@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_blog/services/crud.dart';
 import 'package:flutter_blog/views/create_blog.dart';
@@ -11,25 +10,30 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   CrudMethods crudMethods = new CrudMethods();
 
-  QuerySnapshot blogsSnapshot;
+  Stream blogsStream;
 
-  Widget BlogsList() {
+  Widget blogsList() {
     return Container(
-      child: blogsSnapshot != null
+      child: blogsStream != null
           ? Column(
               children: <Widget>[
-                ListView.builder(
-                  padding: EdgeInsets.symmetric(horizontal: 16),
-                  shrinkWrap: true,
-                  itemCount: blogsSnapshot.docs.length,
-                  itemBuilder: (context, index) {
-                    return BlogsTile(
-                        authorName: blogsSnapshot.docs[index]['authorName'],
-                        imgUrl: blogsSnapshot.docs[index]['imgUrl'],
-                        title: blogsSnapshot.docs[index]['title'],
-                        description: blogsSnapshot.docs[index]['desc']);
-                  },
-                )
+                StreamBuilder(
+                    stream: blogsStream,
+                    builder: (context, snapshot) {
+                      return ListView.builder(
+                        padding: EdgeInsets.symmetric(horizontal: 16),
+                        shrinkWrap: true,
+                        itemCount: snapshot.data.docs.length,
+                        itemBuilder: (context, index) {
+                          return BlogsTile(
+                              authorName: snapshot.data.docs[index]
+                                  ['authorName'],
+                              imgUrl: snapshot.data.docs[index]['imgUrl'],
+                              title: snapshot.data.docs[index]['title'],
+                              description: snapshot.data.docs[index]['desc']);
+                        },
+                      );
+                    })
               ],
             )
           : Container(
@@ -44,7 +48,7 @@ class _HomePageState extends State<HomePage> {
 
     crudMethods.getData().then((res) {
       setState(() {
-        blogsSnapshot = res;
+        blogsStream = res;
       });
     });
   }
@@ -74,7 +78,7 @@ class _HomePageState extends State<HomePage> {
         elevation: 0.0,
         backgroundColor: Colors.transparent,
       ),
-      body: BlogsList(),
+      body: blogsList(),
       floatingActionButton: Container(
         padding: EdgeInsets.symmetric(vertical: 20),
         child: Row(
