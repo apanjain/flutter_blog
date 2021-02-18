@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "676049744340",
-    "project_id": "blogapp-daed6",
-    "storage_bucket": "blogapp-daed6.appspot.com"
+    "project_number": "130682499805",
+    "project_id": "newblogapp-5fab9",
+    "storage_bucket": "newblogapp-5fab9.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:676049744340:android:5e1d766aa27011d09ca641",
+        "mobilesdk_app_id": "1:130682499805:android:38dfa287e7ebd16f686134",
         "android_client_info": {
           "package_name": "com.example.flutter_blog"
         }
       },
       "oauth_client": [
         {
-          "client_id": "676049744340-fvldjea3dlhce4r84p4qruntaor08qq8.apps.googleusercontent.com",
+          "client_id": "130682499805-pagffgi5bbpopdjeho229sijv23otcs9.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCzwq4-ZLdXsm-kPoPl_WKAp9k4KnGljSw"
+          "current_key": "AIzaSyAQ4cXa3GJQb5ritAQoDVsv0ouZfR5Sttw"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "676049744340-fvldjea3dlhce4r84p4qruntaor08qq8.apps.googleusercontent.com",
+              "client_id": "130682499805-pagffgi5bbpopdjeho229sijv23otcs9.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
