@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_blog/services/crud.dart';
 import 'package:flutter_blog/views/create_blog.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -115,8 +116,11 @@ class BlogsTile extends StatelessWidget {
         children: [
           ClipRRect(
               borderRadius: BorderRadius.circular(6),
-              child: Image.network(
-                imgUrl,
+              child: CachedNetworkImage(
+                imageUrl: imgUrl,
+                progressIndicatorBuilder: (context, url, downloadProgress) =>
+                    CircularProgressIndicator(value: downloadProgress.progress),
+                errorWidget: (context, url, error) => Icon(Icons.error),
                 width: MediaQuery.of(context).size.width,
                 fit: BoxFit.cover,
               )),
